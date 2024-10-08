@@ -36,7 +36,7 @@
 
 3. **Data Description**: We provide information about the shape and fraud ratio for each partition.
 
-4. **Data Loading**: We save each partition (train, test) as separate Parquet files.
+4. **Data Loading**: We save each partition (train, validation, test) as separate Parquet files.
 
 ### Rationale
 
@@ -48,7 +48,7 @@
 
 ### Design Decisions
 
-1. **Data Extraction**: We read the partitioned data (train, test) from the Parquet files created by the Dataset Designer.
+1. **Data Extraction**: We read the partitioned data (train, validation, test) from the Parquet files created by the Dataset Designer.
 
 2. **Feature Transformation**:
    - Time-based features: We use sine and cosine transformations for hour and day of week to capture cyclical patterns.
