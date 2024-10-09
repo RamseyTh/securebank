@@ -86,7 +86,7 @@ To run the SecureBank Fraud Detection System:
 
 1. Clone the repository:
    ```
-   git clone https://github.com/yourusername/securebank-fraud-detection.git
+   git clone https://github.com/RamseyTh/securebank.git
    ```
 
 2. Navigate to the project directory:
