@@ -1,4 +1,4 @@
-# SecureBank Fraud Detection System
+# SecureBank Fraud Detection
 
 ## Overview
 
