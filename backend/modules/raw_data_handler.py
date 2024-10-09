@@ -48,7 +48,6 @@ class Raw_Data_Handler:
         # Convert date columns to datetime
         merged_data['trans_date_trans_time'] = pd.to_datetime(merged_data['trans_date_trans_time'])
         # merged_data['dob'] = pd.to_datetime(merged_data['dob'], format='mixed', dayfirst=False)
-        # merged_data['dob'] = pd.to_datetime(merged_data['dob'], format='%m/%d/%Y', dayfirst=False)
         merged_data['dob'] = merged_data['dob'].apply(self.parse_date)
 
         # Create derived features

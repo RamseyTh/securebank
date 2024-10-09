@@ -121,7 +121,7 @@ class Feature_Extractor:
 
     @staticmethod
     def haversine_distance(lat1, lon1, lat2, lon2):
-        R = 6371  # Earth's radius in kilometers
+        R = 6371  # Earth's radius in km
 
         lat1, lon1, lat2, lon2 = map(np.radians, [lat1, lon1, lat2, lon2])
         dlat = lat2 - lat1

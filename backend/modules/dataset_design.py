@@ -18,7 +18,7 @@ class Dataset_Designer:
         return self.raw_dataset
 
     def sample(self) -> List[pd.DataFrame]:
-        # Use GroupShuffleSplit to keep all data with the same cc_num together
+        # Keep data with the same cc_num together
         gss = GroupShuffleSplit(n_splits=1, test_size=0.2, random_state=42)
         
         # Get the indices for train and test sets

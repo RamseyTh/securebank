@@ -105,7 +105,6 @@ class Pipeline:
         return df[features].values
 
 if __name__ == "__main__":
-    # Test Pipeline
     pipeline = Pipeline('random_forest')
     with open('../test.json', 'r') as f:
         sample_input = json.load(f)

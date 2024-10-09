@@ -18,7 +18,7 @@ class PerformanceAuditor:
         self.fraud_df = None
 
     def load_data(self, version: str = None):
-        # Create paths using the single version string
+        # Create paths using the version string
         customer_path = self.construct_path('customers', version)
         transactions_path = self.construct_path('transactions', version)
         fraud_path = self.construct_path('fraud', version)
