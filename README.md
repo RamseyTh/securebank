@@ -2,7 +2,7 @@
 
 ## Overview
 
-The SecureBank Fraud Detection System is a comprehensive solution designed to detect and prevent fraudulent transactions in real-time. This system combines a powerful backend built with Flask and a user-friendly frontend created with React to provide an intuitive interface for fraud detection and model management.
+The SecureBank Fraud Detection System is a comprehensive solution designed to detect and prevent fraudulent transactions in real-time. This system combines a backend built with Flask and a user-friendly frontend created with React to provide an intuitive interface for fraud detection and model management.
 
 ![SecureBank Dashboard Overview](images/dashboard_overview.png)
 *Figure 1: An overview of the SecureBank Dashboard showing all available tabs.*
