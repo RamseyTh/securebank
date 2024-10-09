@@ -7,7 +7,7 @@ from modules.performance_auditor import PerformanceAuditor
 import time
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
+CORS(app)  
 
 pipeline = Pipeline()
 data_generator = DataGenerator()
