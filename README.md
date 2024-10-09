@@ -4,7 +4,7 @@
 
 The SecureBank Fraud Detection System is a comprehensive solution designed to detect and prevent fraudulent transactions in real-time. This system combines a powerful backend built with Flask and a user-friendly frontend created with React to provide an intuitive interface for fraud detection and model management.
 
-![SecureBank Dashboard Overview](dashboard_overview.png)
+![SecureBank Dashboard Overview](images/dashboard_overview.png)
 *Figure 1: An overview of the SecureBank Dashboard showing all available tabs.*
 
 ## Features
@@ -20,7 +20,7 @@ The SecureBank Fraud Detection System is a comprehensive solution designed to de
 
 The SecureBank Fraud Detection System is built using a microservices architecture, with a Flask backend handling the core logic and a React frontend providing the user interface.
 
-![System Architecture](system_architecture.png)
+![System Architecture](images/system_architecture.png)
 *Figure 2: A diagram showing the system architecture, including the Flask backend, React frontend, and Docker containers.*
 
 ### Backend (Flask)
@@ -47,35 +47,35 @@ The user interface is divided into five main sections, each accessible via a tab
 
 ### 1. Predict
 
-![Predict Tab](predict_tab.png)
+![Predict Tab](images/predict_tab.png)
 *Figure 3: The Predict tab, showing the transaction input form and prediction result.*
 
 This tab allows users to input transaction details and receive a fraud prediction in real-time.
 
 ### 2. Dataset
 
-![Dataset Tab](dataset_tab.png)
+![Dataset Tab](images/dataset_tab.png)
 *Figure 4: The Dataset tab, displaying options for generating new datasets.*
 
 Users can generate new datasets by specifying parameters such as the number of transactions, fraud ratio, etc.
 
 ### 3. Model
 
-![Model Tab](model_tab.png)
+![Model Tab](images/model_tab.png)
 *Figure 5: The Model tab, showing options for training and selecting models.*
 
 This tab provides interfaces for training new models on generated datasets and selecting models for use in fraud detection.
 
 ### 4. History
 
-![History Tab](history_tab.png)
+![History Tab](images/history_tab.png)
 *Figure 6: The History tab, displaying a log of past transactions and their fraud predictions.*
 
 Users can view a history of transactions processed by the system, along with their fraud predictions.
 
 ### 5. Audit
 
-![Audit Tab](audit_tab.png)
+![Audit Tab](images/audit_tab.png)
 *Figure 7: The Audit tab, showing performance metrics for the selected model.*
 
 This tab allows users to audit the performance of selected models, displaying metrics such as false positive and false negative rates.
