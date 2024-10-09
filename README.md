@@ -1,126 +1,141 @@
 # SecureBank Fraud Detection System
 
-This system is designed to detect fraudulent transactions using machine learning techniques.
+## Overview
 
-## Requirements
+The SecureBank Fraud Detection System is a comprehensive solution designed to detect and prevent fraudulent transactions in real-time. This system combines a powerful backend built with Flask and a user-friendly frontend created with React to provide an intuitive interface for fraud detection and model management.
 
-- Docker
+![SecureBank Dashboard Overview](dashboard_overview.png)
+*Figure 1: An overview of the SecureBank Dashboard showing all available tabs.*
 
-## How to Run
+## Features
 
-1. Clone this repository
-2. Navigate to the project directory
-3. Build the Docker image:
+1. **Real-time Fraud Detection**: Predict whether a transaction is fraudulent or legitimate based on various parameters.
+2. **Dataset Generation**: Create custom datasets for training and testing fraud detection models.
+3. **Model Training**: Train different types of machine learning models on generated datasets.
+4. **Model Selection**: Choose from various pre-trained models for fraud detection.
+5. **Performance Auditing**: Evaluate the performance of selected models on different datasets.
+6. **Transaction History**: View a log of past transactions and their fraud predictions.
+
+## System Architecture
+
+The SecureBank Fraud Detection System is built using a microservices architecture, with a Flask backend handling the core logic and a React frontend providing the user interface.
+
+![System Architecture](system_architecture.png)
+*Figure 2: A diagram showing the system architecture, including the Flask backend, React frontend, and Docker containers.*
+
+### Backend (Flask)
+
+The backend is responsible for:
+- Processing transactions and making fraud predictions
+- Generating synthetic datasets for training and testing
+- Training and managing machine learning models
+- Auditing model performance
+- Providing API endpoints for the frontend
+
+### Frontend (React)
+
+The frontend provides a user-friendly interface for:
+- Submitting transactions for fraud detection
+- Generating new datasets
+- Training and selecting models
+- Viewing transaction history
+- Auditing model performance
+
+## User Interface
+
+The user interface is divided into five main sections, each accessible via a tab in the dashboard:
+
+### 1. Predict
+
+![Predict Tab](predict_tab.png)
+*Figure 3: The Predict tab, showing the transaction input form and prediction result.*
+
+This tab allows users to input transaction details and receive a fraud prediction in real-time.
+
+### 2. Dataset
+
+![Dataset Tab](dataset_tab.png)
+*Figure 4: The Dataset tab, displaying options for generating new datasets.*
+
+Users can generate new datasets by specifying parameters such as the number of transactions, fraud ratio, etc.
+
+### 3. Model
+
+![Model Tab](model_tab.png)
+*Figure 5: The Model tab, showing options for training and selecting models.*
+
+This tab provides interfaces for training new models on generated datasets and selecting models for use in fraud detection.
+
+### 4. History
+
+![History Tab](history_tab.png)
+*Figure 6: The History tab, displaying a log of past transactions and their fraud predictions.*
+
+Users can view a history of transactions processed by the system, along with their fraud predictions.
+
+### 5. Audit
+
+![Audit Tab](audit_tab.png)
+*Figure 7: The Audit tab, showing performance metrics for the selected model.*
+
+This tab allows users to audit the performance of selected models, displaying metrics such as false positive and false negative rates.
+
+## Getting Started
+
+To run the SecureBank Fraud Detection System:
+
+1. Clone the repository:
    ```
-   docker build -t securebank .
-   ```
-4. Run the Docker container:
-   ```
-   docker run -p 5001:5001 securebank
+   git clone https://github.com/yourusername/securebank-fraud-detection.git
    ```
 
-The system will now be running on `http://localhost:5001`.
+2. Navigate to the project directory:
+   ```
+   cd securebank
+   ```
 
+3. Build and run the Docker containers:
+   ```
+   docker-compose up --build
+   ```
 
-## API Endpoints and Usage
+4. Access the application at `http://localhost:3000` in your web browser.
 
-### 1. `/help` (GET)
+## Development
 
-Displays all available commands and how to use them.
+For development purposes, you can run the backend and frontend separately:
 
-### 2. `/predict/` (POST)
+### Backend
 
-Predicts if a given transaction is fraudulent or legitimate.
+1. Navigate to the backend directory:
+   ```
+   cd backend
+   ```
 
-- **Required JSON Parameters:**
-    ```json
-    {
-        "trans_date_trans_time": "2024-09-21 12:34:56",
-        "cc_num": 1234567890123456,
-        "unix_time": 1622547800,
-        "merchant": "Online Store",
-        "category": "Shopping",
-        "amt": 100.50,
-        "merch_lat": 40.7128,
-        "merch_long": -74.0060
-    }
-    ```
+2. Install the required Python packages:
+   ```
+   pip install -r requirements.txt
+   ```
 
-- **Response:**
-    - Returns whether the transaction is predicted as "fraudulent" or "legitimate".
+3. Run the Flask application:
+   ```
+   python app.py
+   ```
 
-### 3. `/generate_dataset/` (POST)
+### Frontend
 
-Generates a new dataset version with the specified parameters.
+1. Navigate to the frontend directory:
+   ```
+   cd frontend
+   ```
 
-- **Required JSON Parameters:**
-    ```json
-    {
-        "version": "v1.0",
-        "num_customers": 1000,
-        "num_transactions": 10000,
-        "fraud_ratio": 0.01
-    }
-    ```
+2. Install the required Node.js packages:
+   ```
+   npm install
+   ```
 
-- **Response:**
-    - Confirms the successful generation of the specified dataset version.
-
-### 4. `/train_model/` (POST)
-
-Trains a specified model using a selected dataset version.
-
-- **Required JSON Parameters:**
-    ```json
-    {
-        "model_name": "random_forest",
-        "dataset_version": "v1.0"
-    }
-    ```
-
-- **Response:**
-    - Confirms that the model has been trained successfully.
-
-### 5. `/select_model/` (POST)
-
-Selects a pre-trained model for future predictions.
-
-- **Required JSON Parameters:**
-    ```json
-    {
-        "model_name": "random_forest"
-    }
-    ```
-
-- **Response:**
-    - Confirms that the specified model has been selected successfully.
-
-### 6. `/history` (GET)
-
-Fetches the prediction history, showing previously predicted transactions and their results.
-
-- **Response:**
-    - Returns the prediction history as a list of transactions with outcomes.
-
-### 7. `/audit_performance/` (POST)
-
-Audits the performance of the currently selected model using the specified dataset version.
-
-- **Required JSON Parameters:**
-    ```json
-    {
-        "dataset_version": "v1.0"
-    }
-    ```
-
-- **Response:**
-    - Returns performance metrics false positive rate and false negative rate for the model on the specified dataset.
-
-## Usage Tips
-
-- Start by generating a dataset using the `/generate_dataset/` endpoint.
-- Train a model using the `/train_model/` endpoint, specifying the model type and dataset version.
-- Use the `/select_model/` endpoint to choose a trained model for making predictions.
-- Predict transactions with the `/predict/` endpoint to identify potential fraud.
-- Audit model performance using the `/audit_performance/` endpoint to evaluate how well your model performs on different datasets.
+3. Start the React development server:
+   ```
+   npm start
+   ```
 
