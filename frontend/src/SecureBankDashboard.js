@@ -30,8 +30,8 @@ const SecureBankDashboard = () => {
 
   const [datasetParams, setDatasetParams] = useState({
     version: '',
-    num_customers: 1000,
-    num_transactions: 10000,
+    num_customers: 100,
+    num_transactions: 1000,
     fraud_ratio: 0.01
   });
 

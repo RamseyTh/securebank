@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>SecureBank Fraud Detection System</h1>
+        <h1>SecureBank Fraud Detection</h1>
       </header>
       <main>
         <SecureBankDashboard />
